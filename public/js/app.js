@@ -5,12 +5,18 @@ angular.module('main',[
         "addUserController",
         "editUserController",
         "editSelectedController",
-        "timeController"
+        "timeController",
+        "logService",
+        "loginController"
       ])
       .config(function($routeProvider,$locationProvider){
         $locationProvider.hashPrefix("");
         $routeProvider
         .when("/",{
+          templateUrl : "pages/login.html",
+          controller : "logCtrl"
+        })
+        .when("/accounts",{
           templateUrl : "pages/accounts.html",
           controller : "mainCtrl"
         })

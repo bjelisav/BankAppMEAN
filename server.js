@@ -20,6 +20,14 @@ app.get("/getData",function(req,res){
     res.send(docs);
   })
 })
+app.get("/getLoginData",function(req,res){
+  db.login.find(function(err,docs){
+    if (err) {
+      throw(err)
+    }
+    res.send(docs);
+  })
+})
 app.post('/addAccount',function(req,res){
   console.log(req.body);
   var obj = req.body;
