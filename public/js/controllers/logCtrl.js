@@ -1,5 +1,7 @@
 angular.module("loginController",[])
         .controller("logCtrl",function($scope,db,log,$location){
+          var logBtn = document.getElementById('logOut');
+          logBtn.style.display = "none";
           $scope.username = "";
           $scope.password = "";
           var loginData = "";
