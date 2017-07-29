@@ -1,7 +1,5 @@
 angular.module('addUserController',[])
       .controller('addUserCtrl',function($scope,db,$location,log){
-        var logBtn = document.getElementById('logOut');
-        logBtn.style.display = "inline-block";
         log.checkLog();
         $scope.addUser = function(){
           db.sendData({

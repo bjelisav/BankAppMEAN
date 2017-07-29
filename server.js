@@ -3,7 +3,7 @@ const express = require('express');
 const mongojs = require('mongojs');
 const bodyParser = require('body-parser');
 
-const db = mongojs('bankAppDb',['accounts'])
+const db = mongojs('bankAppDb',['accounts','login'])
 const app = express();
 const ObjectId = mongojs.ObjectId;
 

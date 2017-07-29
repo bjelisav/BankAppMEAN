@@ -5,7 +5,5 @@ angular.module('timeController',[])
             $scope.today = new Date();
           },1000)
 
-          $scope.logOut = function(){
-            log.logOut();
-          }
+          
       })

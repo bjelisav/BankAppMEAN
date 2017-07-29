@@ -1,7 +1,5 @@
 angular.module('editUserController',[])
         .controller('editUserCtrl',function($scope,db,log,$location){
-          var logBtn = document.getElementById('logOut');
-          logBtn.style.display = "inline-block";
           log.checkLog();
           $scope.accounts = [];
           db.getData().then(function(result){
@@ -17,5 +15,8 @@ angular.module('editUserController',[])
           }
           $scope.selectUser = function(account){
             db.setActiveAccount(account);
+          }
+          $scope.logOut = function(){
+            log.logOut();
           }
         })
