@@ -11,7 +11,14 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
 
-
+app.get("/api",function(req,res){
+  db.accounts.find(function(err,docs){
+    if(err){
+      throw(err);
+    }
+    res.send(docs);
+  })
+})
 app.get("/getData",function(req,res){
   db.accounts.find(function(err,docs){
     if (err) {
@@ -29,7 +36,6 @@ app.get("/getLoginData",function(req,res){
   })
 })
 app.post('/addAccount',function(req,res){
-  console.log(req.body);
   var obj = req.body;
 
   db.accounts.insert({name : obj.name,deposit : obj.deposit, card : obj.card},function(err,docs){
@@ -39,7 +45,7 @@ app.post('/addAccount',function(req,res){
     res.send(docs);
   })
 })
-app.post('/deleteUser',function(req,res){
+app.post('/deleteAccount',function(req,res){
   var id = req.body.id;
   db.accounts.remove({_id:ObjectId(id)},function(err,docs){
     if (err) {
