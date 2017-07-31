@@ -8,7 +8,8 @@ angular.module('main',[
         "timeController",
         "logService",
         "loginController",
-        "adminController"
+        "adminController",
+        "adminLogController"
       ])
       .config(function($routeProvider,$locationProvider){
         $locationProvider.hashPrefix("");
@@ -36,6 +37,10 @@ angular.module('main',[
         .when("/admin",{
           templateUrl: "pages/adminPages/adminpanel.html",
           controller: "adminCtrl"
+        })
+        .when("/adminLog",{
+          templateUrl: "pages/adminPages/adminLog.html",
+          controller: "adminLogCtrl"
         })
 
       })
