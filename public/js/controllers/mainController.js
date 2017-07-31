@@ -10,4 +10,5 @@ angular.module('mainController',[])
           $scope.logOut = function(){
             log.logOut();
           }
+          
         })

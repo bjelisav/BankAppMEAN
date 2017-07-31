@@ -7,7 +7,8 @@ angular.module('main',[
         "editSelectedController",
         "timeController",
         "logService",
-        "loginController"
+        "loginController",
+        "adminController"
       ])
       .config(function($routeProvider,$locationProvider){
         $locationProvider.hashPrefix("");
@@ -31,6 +32,10 @@ angular.module('main',[
         .when("/editSelected",{
           templateUrl : "pages/editUser.html",
           controller : "editSelectedCtrl"
+        })
+        .when("/admin",{
+          templateUrl: "pages/adminPages/adminpanel.html",
+          controller: "adminCtrl"
         })
 
       })

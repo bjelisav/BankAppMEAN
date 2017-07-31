@@ -2,6 +2,7 @@ angular.module("dbServices",[])
       .service('db',function($http){
         var self = this;
         this.activeAccount = "";
+        
         this.getData = function(){
           return $http({
             method : "get",
