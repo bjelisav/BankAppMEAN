@@ -8,4 +8,7 @@ angular.module("editSelectedController",[])
               $location.path("/accounts");
             })
           }
+          $scope.logOut = function(){
+            log.logOut();
+          }
         })

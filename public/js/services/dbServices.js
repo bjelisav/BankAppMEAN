@@ -2,7 +2,7 @@ angular.module("dbServices",[])
       .service('db',function($http){
         var self = this;
         this.activeAccount = "";
-        
+
         this.getData = function(){
           return $http({
             method : "get",
@@ -16,10 +16,10 @@ angular.module("dbServices",[])
             data : obj
           })
         }
-        this.deleteUserData = function (id){
+        this.deleteAccountData = function (id){
           return $http({
             method : "post",
-            url : "/deleteUser",
+            url : "/deleteAccount",
             data : {id : id}
           })
         }

@@ -7,13 +7,12 @@ angular.module('editUserController',[])
           },function(err){
             console.log(err.status);
           })
-          $scope.deleteUser = function(account){
-            console.log(account);
-            db.deleteUserData(account._id).then(function(result){
+          $scope.deleteAccount = function(account){
+            db.deleteAccountData(account._id).then(function(result){
               $location.path('/accounts');
             });
           }
-          $scope.selectUser = function(account){
+          $scope.selectAccount = function(account){
             db.setActiveAccount(account);
           }
           $scope.logOut = function(){

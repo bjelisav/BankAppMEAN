@@ -10,4 +10,7 @@ angular.module('addUserController',[])
             $location.path("/accounts");
           })
         }
+        $scope.logOut = function(){
+          log.logOut();
+        }
       })
