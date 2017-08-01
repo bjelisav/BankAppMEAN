@@ -7,9 +7,4 @@ angular.module("adminController",[])
           },function(err){
             console.log(err.status);
           })
-          $scope.deleteUser = function(user){
-            db.delUser(user._id).then(function(){
-              $location.path("/adminLog");
-            })
-          }
-        })
+        });
