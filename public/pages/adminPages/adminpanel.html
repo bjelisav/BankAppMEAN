@@ -9,13 +9,13 @@
       <thead>
         <th>Username</th>
         <th>Password</th>
+        <th><a href="#/addUser" type="button" class="btn btn-success">Add</a></th>
       </thead>
       <tbody ng-repeat="user in users">
         <td>{{user.username}}</td>
         <td>{{user.password}}</td>
-        <td><a href="#" type="button" class="btn btn-success">Add</a></td>
         <td><a href="#" type="button" class="btn btn-warning">Edit</a></td>
-        <td><button type="button" name="button" class="btn btn-danger">Delete</button></td>
+        <td><button type="button" ng-click="deleteUser(user)" class="btn btn-danger">Delete</button></td>
       </tbody>
     </table>
   </div>

@@ -9,7 +9,8 @@ angular.module('main',[
         "logService",
         "loginController",
         "adminController",
-        "adminLogController"
+        "adminLogController",
+        "adminAddController"
       ])
       .config(function($routeProvider,$locationProvider){
         $locationProvider.hashPrefix("");
@@ -22,16 +23,16 @@ angular.module('main',[
           templateUrl : "pages/accounts.html",
           controller : "mainCtrl"
         })
-        .when("/addUser",{
-          templateUrl : "pages/addUser.html",
+        .when("/addAccount",{
+          templateUrl : "pages/addAccount.html",
           controller : "addUserCtrl"
         })
-        .when("/editUser",{
+        .when("/editAccounts",{
           templateUrl : "pages/editAccounts.html",
           controller : "editUserCtrl"
         })
         .when("/editSelected",{
-          templateUrl : "pages/editUser.html",
+          templateUrl : "pages/editAccount.html",
           controller : "editSelectedCtrl"
         })
         .when("/admin",{
@@ -41,6 +42,10 @@ angular.module('main',[
         .when("/adminLog",{
           templateUrl: "pages/adminPages/adminLog.html",
           controller: "adminLogCtrl"
+        })
+        .when("/addUser",{
+          templateUrl: "pages/adminPages/adminAddUser.html",
+          controller: "adminAddCtrl"
         })
 
       })

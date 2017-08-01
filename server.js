@@ -65,6 +65,27 @@ app.post('/editAccount',function(req,res){
   })
 })
 
+//admin methods
+app.post('/addUser',function(req,res){
+  var obj = req.body;
+  console.log(obj);
+  db.login.insert({username: obj.username, password:obj.password },function(err,docs){
+    if (err) {
+      throw(err);
+    }
+    res.send(docs);
+  })
+})
+
+app.post('/deleteUser',function(req,res){
+  var id = req.body.id;
+  db.login.remove({_id:ObjectId(id)}),function(err,docs){
+    if (err) {
+      throw(err)
+    }
+    res.send(docs);
+  }
+})
 
 app.listen(3000,function(){
   console.log("Listening to port 3000");

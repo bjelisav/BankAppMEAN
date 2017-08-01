@@ -36,4 +36,19 @@ angular.module("dbServices",[])
             data : account
           })
         }
+        //admin methods
+        this.saveAdminUser = function(obj){
+          return $http({
+            method : "post",
+            url: "/addUser",
+            data : obj
+          })
+        }
+        this.delUser= function(id){
+          return $http({
+            method : "post",
+            url: "/deleteUser",
+            data : {id : id}
+          })
+        }
       })

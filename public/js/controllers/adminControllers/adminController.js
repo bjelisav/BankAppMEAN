@@ -1,5 +1,5 @@
 angular.module("adminController",[])
-        .controller("adminCtrl", function($scope,log){
+        .controller("adminCtrl", function($scope,log,db){
           log.checkLog();
           $scope.users = [];
           log.getLoginData().then(function(result){
@@ -7,12 +7,9 @@ angular.module("adminController",[])
           },function(err){
             console.log(err.status);
           })
-          $scope.switchTab = function(){
-            var tab = document.querySelectorAll('li>a');
-            for (var i = 0; i < tab.length; i++) {
-              tab[i].removeClass('active');
-            }
-            this.addClass('active');
+          $scope.deleteUser = function(user){
+            db.delUser(user._id).then(function(){
+              $location.path("/adminLog");
+            })
           }
-
         })
