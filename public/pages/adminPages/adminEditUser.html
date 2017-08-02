@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-lg-offset-3 col-lg-6">
+    <div class="well">
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="#/admin">List of Users</a></li>
+      <li role="presentation" class="active"><a href="#/admin">Add/Remove User</a></li>
+      <li role="presentation"><a href="#/adminLog">Log</a></li>
+    </ul><br>
+    <table class="table">
+      <thead>
+        <th>Username</th>
+        <th>Password</th>
+        <th><a href="#/addUser" type="button" class="btn btn-success">Add</a></th>
+      </thead>
+      <tbody ng-repeat="user in users">
+        <td>{{user.username}}</td>
+        <td>{{user.password}}</td>
+        <td><a href="#" type="button" class="btn btn-warning">Edit</a></td>
+        <td><a href="#/admin"type="button" ng-click="deleteUser(user)" class="btn btn-danger">Delete</a></td>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>
