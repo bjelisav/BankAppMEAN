@@ -9,6 +9,7 @@ angular.module('editUserController',[])
           })
           $scope.deleteAccount = function(account){
             db.deleteAccountData(account._id).then(function(result){
+              log.logData("Delete",account.name);
               $location.path('/accounts');
             });
           }

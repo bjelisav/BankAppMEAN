@@ -79,12 +79,34 @@ app.post('/addUser',function(req,res){
 
 app.post('/deleteUser',function(req,res){
   var id = req.body.id;
-  db.login.remove({_id:ObjectId(id)}),function(err,docs){
+  db.login.remove({_id:ObjectId(id)},function(err,docs){
     if (err) {
       throw(err)
     }
     res.send(docs);
-  }
+  })
+})
+
+//log data into log db
+
+app.post('/logData',function(req,res){
+  var obj = req.body;
+  console.log(obj);
+  db.logs.insert({user:obj.user,account:obj.account,action: obj.action,time: obj.time},function(err,docs){
+    if (err) {
+      throw(err);
+    }
+    res.send(docs);
+  })
+})
+
+app.get('/getLogData',function(req,res){
+  db.logs.find(function(err,docs){
+    if (err) {
+      throw(err);
+    }
+    res.send(docs);
+  })
 })
 
 app.listen(3000,function(){

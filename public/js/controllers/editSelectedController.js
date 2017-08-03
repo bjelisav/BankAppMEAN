@@ -4,6 +4,7 @@ angular.module("editSelectedController",[])
           $scope.account = db.getActiveAccount();
           $scope.editUser = function(account) {
             db.editUser(account);
+            log.logData('Edit',account.name);
             db.getData().then(function(){
               $location.path("/accounts");
             })

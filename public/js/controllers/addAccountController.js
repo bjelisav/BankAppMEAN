@@ -7,6 +7,7 @@ angular.module('addUserController',[])
             deposit : $scope.deposit,
             card : $scope.card
           }).then(function() {
+            log.logData("Add",$scope.name)
             $location.path("/accounts");
           })
         }
