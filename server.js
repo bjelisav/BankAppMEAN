@@ -2,10 +2,14 @@
 const express = require('express');
 const mongojs = require('mongojs');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 
 const db = mongojs('bankAppDb',['accounts','login'])
 const app = express();
 const ObjectId = mongojs.ObjectId;
+
+var logFile = '';
+
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended : false}));
@@ -105,6 +109,17 @@ app.get('/getLogData',function(req,res){
     if (err) {
       throw(err);
     }
+    var text = '';
+    logFile = docs;
+    for (var i = 0; i < logFile.length; i++) {
+      text += "User ID: " +logFile[i].user +" ,account: "+logFile[i].account+" ,action: "+ logFile[i].action +" ,time: " +logFile[i].time+ "\n";
+    }
+    fs.writeFile('./public/log.txt',text,function(err,docs){
+      if (err) {
+        throw(err);
+      }
+      console.log("Data written successfully!");
+    })
     res.send(docs);
   })
 })
