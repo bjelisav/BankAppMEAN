@@ -112,7 +112,7 @@ app.get('/getLogData',function(req,res){
     var text = '';
     logFile = docs;
     for (var i = 0; i < logFile.length; i++) {
-      text += "User ID: " +logFile[i].user +" ,account: "+logFile[i].account+" ,action: "+ logFile[i].action +" ,time: " +logFile[i].time+ "\n";
+      text += "User ID: " +logFile[i].user +" ,account: "+logFile[i].account+" ,action: "+ logFile[i].action +" ,time: " +logFile[i].time+ "\r\n";
     }
     fs.writeFile('./public/log.txt',text,function(err,docs){
       if (err) {
